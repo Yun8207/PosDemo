@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:id="@+id/bMenuWhole"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"/>
+        <Button
+            android:id="@+id/bMember"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/bMenuWhole"/>
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="9"
+        >
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fadeScrollbars="true"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                 >
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100sp" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100sp" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100sp" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="100sp" />
+
+            </LinearLayout>
+        </ScrollView>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:layout_marginLeft="10dp">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="#ffff"
+                android:layout_margin="5dp"
+                />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#999"
+                        android:orientation="horizontal">
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="220dp"
+                            android:layout_weight="1"
+                            android:layout_margin="10dp"
+                            android:onClick="gotoSelect"
+                            />
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="220dp"
+                            android:layout_weight="1"
+                            android:layout_margin="10dp"
+                            android:onClick="gotoSelect"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#999"
+                        android:orientation="horizontal"
+                        >
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="220dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:onClick="gotoSelect"
+                            />
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="220dp"
+                            android:layout_weight="1"
+                            android:layout_margin="10dp"
+                            android:onClick="gotoSelect"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
