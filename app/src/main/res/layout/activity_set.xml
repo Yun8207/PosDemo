@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectionActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="選擇名稱:"
+            android:textSize="20sp"
+            android:gravity="center_vertical"
+            android:layout_weight="2"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="原價"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/setting_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="#Product"
+            android:textSize="50sp"
+            android:gravity="center_vertical"
+            android:layout_weight="2"
+            />
+        <TextView
+            android:id="@+id/setting_price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="#Price"
+            android:textSize="50sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:gravity="center"
+        >
+
+        <EditText
+            android:id="@+id/dis_value"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="這裡輸入折抵(%)"
+            android:inputType="numberDecimal"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="確認"
+            android:textSize="20dp"
+            android:onClick="gotoMain"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:text="取消"
+            android:textSize="20dp"
+            android:onClick="backtoMain"
+
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

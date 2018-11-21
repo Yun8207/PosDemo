@@ -10,22 +10,42 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         >
         <Button
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"/>
+            android:id="@+id/setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:onClick="MenuSetting"
+            android:layout_centerVertical="true"
+            android:background="@drawable/menu_change"/>
         <Button
-            android:id="@+id/bMenuWhole"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"/>
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_toRightOf="@+id/setting"
+            android:onClick="checkData"
+            android:layout_centerVertical="true"
+
+            />
+
         <Button
             android:id="@+id/bMember"
+            android:textSize="18dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/bMenuWhole"/>
+            android:layout_toLeftOf="@+id/bMenuFull"
+            android:onClick="Member"
+            android:text="會員" />
+        <Button
+            android:id="@+id/bMenuFull"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:onClick="MenuFull"
+            android:text="全菜單"
+            android:gravity="center"/>
 
 
     </RelativeLayout>
@@ -49,16 +69,30 @@
                  >
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="100sp" />
+                    android:layout_height="100sp"
+                    android:textSize="20dp"
+                    android:text="促銷"
+                    android:onClick="onHot"
+                    android:background="@drawable/discount"
+                    />
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="100sp" />
+                    android:layout_height="100sp"
+                    android:text="咖啡飲"
+                    android:onClick="subMenuA"
+                    android:background="@drawable/coffee"/>
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="100sp" />
+                    android:layout_height="100sp"
+                    android:text="茶飲"
+                    android:onClick="subMenuB"
+                    android:background="@drawable/tea"/>
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="100sp" />
+                    android:layout_height="100sp"
+                    android:text="氣泡飲"
+                    android:onClick="subMenuC"
+                    android:background="@drawable/soda"/>
 
             </LinearLayout>
         </ScrollView>
@@ -67,21 +101,54 @@
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:layout_marginLeft="10dp">
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/cart_button"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:background="#ffff"
+                android:background="@drawable/basket"
                 android:layout_margin="5dp"
+                android:onClick="gotoCart"
+
                 />
-            <ScrollView
+
+
+            <GridView
+                android:id="@+id/menu_sub"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:columnWidth="200dp"
+                android:numColumns="auto_fit"
+                android:verticalSpacing="20dp"
+                android:visibility="gone"
+                android:background="#9999">
+            </GridView>
+            <GridView
+                android:id="@+id/menu_set"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="200dp"
+                android:numColumns="2"
+                android:verticalSpacing="20dp"
+                android:visibility="gone"
+                android:background="#9999"
+                >
+            </GridView>
+
+
+            <ScrollView
+                android:id="@+id/menu_hot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    >
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -93,13 +160,17 @@
                             android:layout_weight="1"
                             android:layout_margin="10dp"
                             android:onClick="gotoSelect"
+                            android:text="冰拿鐵"
+                            android:textSize="30sp"
                             />
                         <Button
                             android:layout_width="0dp"
                             android:layout_height="220dp"
                             android:layout_weight="1"
                             android:layout_margin="10dp"
-                            android:onClick="gotoSelect"/>
+                            android:onClick="gotoSelect"
+                            android:text="奶綠"
+                            android:textSize="30sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -114,16 +185,37 @@
                             android:layout_margin="10dp"
                             android:layout_weight="1"
                             android:onClick="gotoSelect"
+                            android:text="蝶豆花氣泡飲"
+                            android:textSize="30sp"
                             />
                         <Button
                             android:layout_width="0dp"
                             android:layout_height="220dp"
                             android:layout_weight="1"
                             android:layout_margin="10dp"
-                            android:onClick="gotoSelect"/>
+                            android:onClick="gotoSelect"
+                            android:text="黑咖啡"
+                            android:textSize="30sp"/>
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
+            <TextView
+                android:id="@+id/cart_num"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:background="@drawable/cart2"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="30dp"
+                android:visibility="visible"
+                android:text="1"
+                android:gravity="center"
+                android:elevation="100dp"/>
         </RelativeLayout>
+
     </LinearLayout>
+
 </LinearLayout>

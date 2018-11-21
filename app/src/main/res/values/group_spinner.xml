@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="group_spinner">
+        <item>今日表單</item>
+        <item>總收入</item>
+
+    </string-array>
+</resources>

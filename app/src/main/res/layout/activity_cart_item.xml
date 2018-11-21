@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    tools:context=".CartItemActivity"
+    android:orientation="horizontal"
+    android:focusable="true"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5">
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textSize="10dp"
+            android:text="X"
+            android:gravity="center"
+            android:background="#fff"
+            android:layout_gravity="center"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Tea"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+
+        <ViewFlipper
+            android:id="@+id/vf_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inAnimation="@anim/updown_show"
+            android:outAnimation="@anim/updown_hide"
+            android:flipInterval="500"
+            android:persistentDrawingCache="animation"
+            android:scaleX="0.9"
+            android:scaleY="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sbtn_l"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sbtn_m"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sbtn_s"/>
+
+            </LinearLayout>
+        </ViewFlipper>
+        <ViewFlipper
+            android:id="@+id/vf_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inAnimation="@anim/updown_show"
+            android:outAnimation="@anim/updown_hide"
+            android:flipInterval="500"
+            android:persistentDrawingCache="animation"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:layout_gravity="center"
+
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_hot"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_fullice"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_halfice"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_fewice"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_noice"/>
+
+
+            </LinearLayout>
+        </ViewFlipper>
+        <ViewFlipper
+            android:id="@+id/vf_sugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inAnimation="@anim/updown_show"
+            android:outAnimation="@anim/updown_hide"
+            android:flipInterval="500"
+            android:persistentDrawingCache="animation"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_fullsugar"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_halfsugar"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_fewsugar"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/btn_nosugar"/>
+
+            </LinearLayout>
+
+        </ViewFlipper>
+    </LinearLayout>
+    <Button
+        android:id="@+id/minus"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:scaleX="0.3"
+        android:scaleY="0.5"
+        android:background="@drawable/a_l"/>
+
+    <EditText
+        android:id="@+id/item_quan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.2"
+        android:inputType="number"
+        android:text="1"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:background="@null"
+        android:textAllCaps="false"
+        android:imeOptions="actionDone"
+        />
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:scaleX="0.3"
+        android:scaleY="0.5"
+        android:background="@drawable/a_r"/>
+
+</LinearLayout>

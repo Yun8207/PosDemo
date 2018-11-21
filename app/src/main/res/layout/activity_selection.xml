@@ -6,41 +6,98 @@
     android:layout_height="match_parent"
     tools:context=".SelectionActivity"
     android:orientation="vertical">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:text="#Product"
-        android:textSize="50sp"
-        android:gravity="center"
-        />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/purchase_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="#Product"
+            android:textSize="35sp"
+            android:layout_weight="3"
+            android:gravity="center"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+            <Button
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:scaleX="0.4"
+                android:scaleY="0.7"
+                android:onClick="minus"
+                android:background="@drawable/a_l"/>
+
+            <EditText
+                android:id="@+id/quan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.2"
+                android:inputType="number"
+                android:text="1"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:background="@null"
+                android:textAllCaps="false"
+                android:imeOptions="actionDone"
+                />
+            <Button
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:scaleX="0.4"
+                android:scaleY="0.7"
+                android:onClick="add"
+                android:background="@drawable/a_r"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:gravity="center"
         >
-        <Button
-            android:id="@+id/sizeButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:text="S"/>
-        <Button
-            android:id="@+id/sizeButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
-            android:layout_toRightOf="@id/sizeButton1"
-            android:text="M"/>
+
         <Button
             android:id="@+id/sizeButton3"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="2dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_l"
+            android:layout_margin="1dp"
+            android:scaleX="0.85"
+            android:onClick="large"/>
+        <Button
+            android:id="@+id/sizeButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/sizeButton3"
+            android:background="@drawable/btn_m"
+            android:layout_margin="1dp"
+            android:scaleX="0.85"
+            android:onClick="medium"/>
+
+        <Button
+            android:id="@+id/sizeButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@id/sizeButton2"
-            android:text="L"/>
+            android:background="@drawable/btn_s"
+            android:layout_margin="1dp"
+            android:scaleX="0.85"
+            android:onClick="small"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -53,28 +110,32 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:text="Hot"/>
+            android:background="@drawable/btn_hot"
+            android:onClick="hot"/>
         <Button
             android:id="@+id/tempButton2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/tempButton1"
-            android:text="Full Ice"/>
+            android:background="@drawable/btn_fullice"
+            android:onClick="fullIce"/>
         <Button
             android:id="@+id/tempButton3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/tempButton2"
-            android:text="Half Ice"/>
+            android:background="@drawable/btn_halfice"
+            android:onClick="halfIce"/>
         <Button
             android:id="@+id/tempButton4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/tempButton3"
-            android:text="Few Ice"/>
+            android:background="@drawable/btn_fewice"
+            android:onClick="fewIce"/>
 
         <Button
             android:id="@+id/tempButton5"
@@ -82,7 +143,8 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/tempButton4"
-            android:text="No Ice"/>
+            android:background="@drawable/btn_noice"
+            android:onClick="noIce"/>
 
     </RelativeLayout>
     <RelativeLayout
@@ -96,28 +158,32 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:text="Full Sugar"/>
+            android:background="@drawable/btn_fullsugar"
+            android:onClick="fullSugar"/>
         <Button
             android:id="@+id/sweetButton2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/sweetButton1"
-            android:text="Half Sugar"/>
+            android:background="@drawable/btn_halfsugar"
+            android:onClick="halfSugar"/>
         <Button
             android:id="@+id/sweetButton3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/sweetButton2"
-            android:text="Few Sugar"/>
+            android:background="@drawable/btn_fewsugar"
+            android:onClick="fewSugar"/>
         <Button
             android:id="@+id/sweetButton4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/sweetButton3"
-            android:text="No Sugar"/>
+            android:background="@drawable/btn_nosugar"
+            android:onClick="noSugar"/>
 
 
     </RelativeLayout>
@@ -131,7 +197,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:text="confirm"
+            android:text="確認"
+            android:textSize="20dp"
             android:onClick="gotoMain"
            />
         <Button
@@ -139,7 +206,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
-            android:text="cancel"
+            android:text="取消"
+            android:textSize="20dp"
             android:onClick="backtoMain"
 
             />
