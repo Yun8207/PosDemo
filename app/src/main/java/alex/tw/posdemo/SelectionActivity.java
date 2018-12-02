@@ -108,21 +108,21 @@ public class SelectionActivity extends AppCompatActivity {
     public void large(View view) {
         size = 0;
         txtSize="L";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void medium(View view) {
         size = 1;
         txtSize="M";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void small(View view) {
         size = 2;
         txtSize="S";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
@@ -135,7 +135,7 @@ public class SelectionActivity extends AppCompatActivity {
     public void hot(View view) {
         temp = 0;
         txtTemp = "熱";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
 
     }
@@ -143,28 +143,28 @@ public class SelectionActivity extends AppCompatActivity {
     public void fullIce(View view) {
         temp = 1;
         txtTemp = "全冰";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void halfIce(View view) {
         temp = 2;
         txtTemp = "半冰";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void fewIce(View view) {
         temp = 3;
         txtTemp = "少冰";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void noIce(View view) {
         temp = 4;
         txtTemp = "去冰";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
@@ -172,28 +172,28 @@ public class SelectionActivity extends AppCompatActivity {
     public void fullSugar(View view) {
         sugar = 0;
         txtSugar = "全糖";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void halfSugar(View view) {
         sugar = 1;
         txtSugar = "半糖";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void fewSugar(View view) {
         sugar = 2;
         txtSugar = "少糖";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 
     public void noSugar(View view) {
         sugar = 3;
         txtSugar = "無糖";
-        itemInfo = id + " "+txtSize+" "+txtTemp+" "+txtSugar;
+        itemInfo = id + "\n"+txtSize+" "+txtTemp+" "+txtSugar;
         textView.setText(itemInfo);
     }
 

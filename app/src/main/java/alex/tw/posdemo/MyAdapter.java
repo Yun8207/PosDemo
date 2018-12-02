@@ -204,21 +204,33 @@ public class MyAdapter extends ArrayAdapter<DataModel> implements View.OnClickLi
 
 
         viewHolder.quantityTxt.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
+                Log.v("alex",""+hasFocus);
+                if(hasFocus){
+                }
+
                 if(!hasFocus){
                         try {
                             dataModel.quantity = parseInt(((EditText) v).getText().toString());
-                            notifyDataSetChanged();
+
                         }catch (NumberFormatException e){
                             dataModel.quantity = 1;
-                            notifyDataSetChanged();
+                            //((EditText) v).setText(1+"");
+
                         }
                         if (dataModel.quantity >100){
                             dataModel.quantity = 100;
                             ((EditText) v).setText(100+"");
                         }
+                        if (dataModel.quantity <=0){
+                            dataModel.quantity = 1;
+                            ((EditText) v).setText(1+"");
+                        }
+
                 }
+
             }
         });
 

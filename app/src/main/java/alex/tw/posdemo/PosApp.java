@@ -18,6 +18,7 @@ public class PosApp extends Application {
 
     private TempDbHelper myHelper;
     public static SQLiteDatabase menuDb;
+    public Cursor cursorHot;
     public Cursor cursorA ;
     public Cursor cursorB ;
     public Cursor cursorC ;
@@ -53,7 +54,7 @@ public class PosApp extends Application {
         myHelper = new TempDbHelper(this, "alex", null, 1);
         menuDb = myHelper.getReadableDatabase();
         //menuDb.delete("product",null,null);
-        //menuDb.delete("purchase",null,null);
+        menuDb.delete("purchase",null,null);
 
 
         if (!menuDb.query("product",new String[]{"pname"}, null,null,null,null,null).moveToFirst()) {//check if table exist
@@ -73,19 +74,20 @@ public class PosApp extends Application {
 
         }
 
+
         cursorA = menuDb.query("product",new String[]{"pname", "price","discount"}, "cid = ?",new String[]{"A"},null,null,null);
         cursorB = menuDb.query("product",new String[]{"pname", "price","discount"}, "cid = ?",new String[]{"B"},null,null,null);
         cursorC = menuDb.query("product",new String[]{"pname", "price","discount"}, "cid = ?",new String[]{"C"},null,null,null);
-
+        cursorHot = menuDb.query("product",new String[]{"pname", "price","discount"}, "discount != 100",null,null,null,null);
         cursorAll = menuDb.query("product",new String[]{"pname", "price","discount"}, null,null,null,null,null);
 
         int count = cursorAll.getCount();
-        while (cursorAll.moveToNext()) {
-            String pname = cursorAll.getString(0);
-            int price = cursorAll.getInt(1);//cursor.getString(cursor.getColumenIndex("price");
+        while (cursorHot.moveToNext()) {
+            String pname = cursorHot.getString(0);
+            int price = cursorHot.getInt(1);//cursor.getString(cursor.getColumenIndex("price");
 
 
-            //Log.v("alex",  pname +":NT" +price);
+            Log.v("alex",  pname +":NT" +price);
 
 
         }

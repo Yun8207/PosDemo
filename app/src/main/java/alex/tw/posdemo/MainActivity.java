@@ -31,13 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog setPrice;
 
     private GridView gridSubMenu;
-    private ScrollView gridMenuHot;
     private SimpleAdapter simpleAdapter;
     private PosApp posApp;
     private TextView cartNum;
 
     private GridView gridSetMenu;
+    private GridView gridHotMenu;
     private SimpleAdapter simpleAdapter2;
+    private SimpleAdapter simpleAdapter3;
     String[] menuA = {"A1","A2","A3","A4","A5"}; //Only for example.
     String[] menuB = {"B1","B2","B3","B4","B5","B6","B7"};
     String[] menuC = {"C1","C2","C3","C4","C5","C6","C7","C8","C9"};
@@ -49,10 +50,13 @@ public class MainActivity extends AppCompatActivity {
     //final EditText MInput = new EditText(this);
 
     String[] from = {"product","price"};
+    String[] from2 = {"product","price", "discount"};
     int[] to = {R.id.product_name,R.id.product_prices};
+    int[] to2 = {R.id.product_name,R.id.product_prices, R.id.product_discount};
 
     private LinkedList<HashMap<String,Object>> subMenuData;
     private LinkedList<HashMap<String,Object>> setMenuData;
+    private LinkedList<HashMap<String,Object>> hotMenuData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,11 +78,13 @@ public class MainActivity extends AppCompatActivity {
 //        cartNum.setText("");
 //    }
 
-        gridMenuHot = findViewById(R.id.menu_hot);
         gridSubMenu = findViewById(R.id.menu_sub);
         gridSetMenu = findViewById(R.id.menu_set);
+        gridHotMenu = findViewById(R.id.menu_hot);
         initSubMenu();
         initSetMenu();
+        initHotMenu();
+        init();
 
         //Log.v("alex", "create");
     }
@@ -104,6 +110,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //Log.v("alex","resume");
+    }
+
+    private void init(){
+        gridHotMenu.setVisibility(View.VISIBLE);
+        gridSubMenu.setVisibility(View.GONE);
+        gridSetMenu.setVisibility(View.GONE);
+        gridHotMenu.setNumColumns(3);
+
+        posApp.cursorHot.moveToPosition(-1);
+
+
+        while (posApp.cursorHot.moveToNext()){
+
+            HashMap<String, Object> row = new HashMap<>();
+            float dis = posApp.cursorHot.getInt(2);
+            float discount= dis/10;
+            row.put(from2[0], posApp.cursorHot.getString(0));
+            row.put(from2[1],(posApp.cursorHot.getInt(1)*posApp.cursorHot.getInt(2))/100+"元");
+            row.put(from2[2], discount+"折");
+            hotMenuData.add(row);
+        }
+        menucheck="Hot";
     }
 
     private void initSubMenu(){
@@ -140,11 +168,35 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void initHotMenu(){
+        hotMenuData = new LinkedList<>();
+
+        simpleAdapter3 = new SimpleAdapter(this,hotMenuData,R.layout.product_hot,from2,to2);
+
+        gridHotMenu.setAdapter(simpleAdapter3);
+
+        gridHotMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                gotoSelect(view,position);
+                Log.v("alex", hotMenuData.get(position).get("product").toString());
+
+            }
+        });
+
+
+    }
+
+
+
     public void MenuSetting(View view){
-        gridMenuHot.setVisibility(View.GONE);
+
+        gridHotMenu.setVisibility(View.GONE);
         gridSubMenu.setVisibility(View.GONE);
         gridSetMenu.setVisibility(View.VISIBLE);
-            posApp.cursorAll.moveToPosition(-1);
+        setMenuData.clear();
+        posApp.cursorAll.moveToPosition(-1);
 
 
         for(int i= 0; i < menuSub.length; i++) {
@@ -162,13 +214,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        simpleAdapter.notifyDataSetChanged();
 
 
     }
 
     public void MenuFull(View view){
-        gridMenuHot.setVisibility(View.GONE);
+        gridHotMenu.setVisibility(View.GONE);
         gridSubMenu.setVisibility(View.VISIBLE);
         gridSetMenu.setVisibility(View.GONE);
         gridSubMenu.setNumColumns(2);
@@ -188,8 +239,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void subMenuHot(View view){
+        gridHotMenu.setVisibility(View.VISIBLE);
+        gridSubMenu.setVisibility(View.GONE);
+        gridSetMenu.setVisibility(View.GONE);
+        gridHotMenu.setNumColumns(3);
+        hotMenuData.clear();
+
+        posApp.cursorHot.moveToPosition(-1);
+
+
+        while (posApp.cursorHot.moveToNext()){
+
+            HashMap<String, Object> row = new HashMap<>();
+            int dis = posApp.cursorHot.getInt(2);
+            float discount= dis/10;
+            row.put(from2[0], posApp.cursorHot.getString(0));
+            row.put(from2[1],(posApp.cursorHot.getInt(1)*posApp.cursorHot.getInt(2))/100+"元");
+            row.put(from2[2], discount+"折");
+            hotMenuData.add(row);
+        }
+        menucheck="Hot";
+
+    }
+
+
+
     public void subMenuA(View view){
-        gridMenuHot.setVisibility(View.GONE);
+        gridHotMenu.setVisibility(View.GONE);
         gridSubMenu.setVisibility(View.VISIBLE);
         gridSetMenu.setVisibility(View.GONE);
         gridSubMenu.setNumColumns(2);
@@ -211,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void subMenuB(View view){
-        gridMenuHot.setVisibility(View.GONE);
+        gridHotMenu.setVisibility(View.GONE);
         gridSubMenu.setVisibility(View.VISIBLE);
         gridSetMenu.setVisibility(View.GONE);
         gridSubMenu.setNumColumns(2);
@@ -233,7 +310,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void subMenuC(View view){
-        gridMenuHot.setVisibility(View.GONE);
+        gridHotMenu.setVisibility(View.GONE);
         gridSubMenu.setVisibility(View.VISIBLE);
         gridSetMenu.setVisibility(View.GONE);
         gridSubMenu.setNumColumns(2);
@@ -253,19 +330,6 @@ public class MainActivity extends AppCompatActivity {
         simpleAdapter.notifyDataSetChanged();
     }
 
-    public void gotoSelect(View view){
-        Intent intent = new Intent(this, SelectionActivity.class);
-
-        Button b = (Button)view;
-        String id = b.getText().toString();
-
-
-
-        intent.putExtra("id",id);
-
-        startActivity(intent);
-
-    }
 
     public void gotoSelect(View view, int position){
         Intent intent = new Intent(this, SelectionActivity.class);
@@ -283,6 +347,9 @@ public class MainActivity extends AppCompatActivity {
         }else if (menucheck=="All"){
             posApp.cursorAll.moveToPosition(position);
             id = posApp.cursorAll.getString(0);
+        }else if (menucheck=="Hot"){
+            posApp.cursorHot.moveToPosition(position);
+            id = posApp.cursorHot.getString(0);
         }
 
             intent.putExtra("id",id);
@@ -291,11 +358,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onHot(View view){
-        gridMenuHot.setVisibility(View.VISIBLE);
-        gridSubMenu.setVisibility(View.GONE);
-
-    }
 
     public void Member(View view) {
         AlertDialog.Builder builder =

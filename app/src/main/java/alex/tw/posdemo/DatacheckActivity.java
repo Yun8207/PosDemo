@@ -16,7 +16,8 @@ public class DatacheckActivity extends AppCompatActivity {
 
     Spinner spinner;
     int choice;
-    TextView textView;
+    TextView text1;
+    TextView text2;
 
     private PosApp posApp;
 
@@ -24,11 +25,13 @@ public class DatacheckActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datacheck);
+        choice = 0;
 
         posApp = (PosApp)getApplication();
 
         spinner = findViewById(R.id.spinner);
-        textView = findViewById(R.id.databoard);
+        text1 = findViewById(R.id.databoard_pname);
+        text2 = findViewById(R.id.databoard_info);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.group_spinner, R.layout.spinner_item);
@@ -50,7 +53,8 @@ public class DatacheckActivity extends AppCompatActivity {
     }
 
     public void generateData(View view) {
-        textView.setText("");
+        text1.setText("");
+        text2.setText("");
         if (choice ==0){
 
             Cursor cursor =  posApp.menuDb.query("purchase",new String[]{"pname", "price","discount","quantity","tprice","sugar","date"}, null,null,null,null,null);
@@ -74,9 +78,12 @@ public class DatacheckActivity extends AppCompatActivity {
                 }
                 String date = cursor.getString(6);
                 if(dis ==100){
-                    textView.append(pname + " " + price + " " + "元" +"           x" + quantity + "總共" + tprice + "元 " + sugar + " " + date + "\n");
+                    text1.append(pname + "\n");
+                    text2.append(price + " " + "元" +"           x" + quantity + "總共" + tprice + "元 " + sugar + " " + date + "\n");
+                    Log.v("alex",price + " " + "元" +"           x" + quantity + "總共" + tprice + "元 " + sugar + " " + date + "\n");
                 }else {
-                    textView.append(pname + " " + price + " " + "元 " + discount + "折 x" + quantity + "總共" + tprice + "元 " + sugar + " " + date + "\n");
+                    text1.append(pname + "\n");
+                    text2.append(price + " " + "元 " + discount + "折 x" + quantity + "總共" + tprice + "元 " + sugar + " " + date + "\n");
                 }
             }
 
@@ -84,7 +91,7 @@ public class DatacheckActivity extends AppCompatActivity {
             Cursor cursor = posApp.menuDb.rawQuery("select sum(tprice) from purchase ;",null);
             cursor.moveToFirst();
             int totalprice = cursor.getInt(0);
-            textView.setText(totalprice+"元");
+            text1.setText(totalprice+"元");
 
         }
     }

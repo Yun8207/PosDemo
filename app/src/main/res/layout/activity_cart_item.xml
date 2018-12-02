@@ -6,9 +6,7 @@
     android:layout_height="50dp"
     tools:context=".CartItemActivity"
     android:orientation="horizontal"
-    android:focusable="true"
-    android:clickable="true"
-    android:focusableInTouchMode="true">
+    >
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -229,9 +227,9 @@
     <EditText
         android:id="@+id/item_quan"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_weight="0.2"
+        android:layout_weight="0.3"
         android:inputType="number"
         android:text="1"
         android:textSize="20sp"

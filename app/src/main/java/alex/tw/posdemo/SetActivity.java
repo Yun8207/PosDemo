@@ -139,6 +139,7 @@ public class SetActivity extends AppCompatActivity {
         posApp.cursorA = posApp.menuDb.query("product",new String[]{"pname", "price","discount"}, "cid = ?",new String[]{"A"},null,null,null);
         posApp.cursorB = posApp.menuDb.query("product",new String[]{"pname", "price","discount"}, "cid = ?",new String[]{"B"},null,null,null);
         posApp.cursorC = posApp.menuDb.query("product",new String[]{"pname", "price","discount"}, "cid = ?",new String[]{"C"},null,null,null);
+        posApp.cursorHot = posApp.menuDb.query("product",new String[]{"pname", "price","discount"}, "discount != 100",null,null,null,null);
         posApp.cursorAll = posApp.menuDb.query("product",new String[]{"pname", "price","discount"}, null,null,null,null,null);
 
 

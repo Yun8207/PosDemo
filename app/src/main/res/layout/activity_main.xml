@@ -21,11 +21,12 @@
             android:layout_centerVertical="true"
             android:background="@drawable/menu_change"/>
         <Button
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_toRightOf="@+id/setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@+id/bMember"
             android:onClick="checkData"
             android:layout_centerVertical="true"
+            android:background="@drawable/datainfo"
 
             />
 
@@ -72,7 +73,7 @@
                     android:layout_height="100sp"
                     android:textSize="20dp"
                     android:text="促銷"
-                    android:onClick="onHot"
+                    android:onClick="subMenuHot"
                     android:background="@drawable/discount"
                     />
                 <Button
@@ -121,9 +122,13 @@
                 android:layout_height="match_parent"
                 android:columnWidth="200dp"
                 android:numColumns="auto_fit"
-                android:verticalSpacing="20dp"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp"
                 android:visibility="gone"
-                android:background="#9999">
+                android:background="@drawable/bgw"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                >
             </GridView>
             <GridView
                 android:id="@+id/menu_set"
@@ -131,74 +136,30 @@
                 android:layout_height="match_parent"
                 android:columnWidth="200dp"
                 android:numColumns="2"
-                android:verticalSpacing="20dp"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp"
                 android:visibility="gone"
-                android:background="#9999"
+                android:background="@drawable/bgw"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
                 >
             </GridView>
 
-
-            <ScrollView
+            <GridView
                 android:id="@+id/menu_hot"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="visible">
+                android:verticalSpacing="20dp"
+                android:columnWidth="200dp"
+                android:numColumns="3"
+                android:visibility="visible"
+                android:background="@drawable/bgw"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#999"
-                        android:orientation="horizontal">
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="220dp"
-                            android:layout_weight="1"
-                            android:layout_margin="10dp"
-                            android:onClick="gotoSelect"
-                            android:text="冰拿鐵"
-                            android:textSize="30sp"
-                            />
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="220dp"
-                            android:layout_weight="1"
-                            android:layout_margin="10dp"
-                            android:onClick="gotoSelect"
-                            android:text="奶綠"
-                            android:textSize="30sp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#999"
-                        android:orientation="horizontal"
-                        >
+                >
+            </GridView>
 
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="220dp"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:onClick="gotoSelect"
-                            android:text="蝶豆花氣泡飲"
-                            android:textSize="30sp"
-                            />
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="220dp"
-                            android:layout_weight="1"
-                            android:layout_margin="10dp"
-                            android:onClick="gotoSelect"
-                            android:text="黑咖啡"
-                            android:textSize="30sp"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </ScrollView>
             <TextView
                 android:id="@+id/cart_num"
                 android:layout_width="30dp"

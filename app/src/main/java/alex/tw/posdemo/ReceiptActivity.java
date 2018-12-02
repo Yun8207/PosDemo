@@ -64,7 +64,7 @@ public class ReceiptActivity extends AppCompatActivity {
         receipt.buildDrawingCache();
         totalprice = 0;
 
-        txtInfo.setText("日期:"+time+"\n單號:123123123");
+        txtInfo.setText("日期:"+time+"\n單號:00000012");
         txtItem.setText("");
         txtQuan.setText("");
         txtPrice.setText("");
